@@ -2,7 +2,7 @@
 # qwiic_stc3x.py
 #
 # Python library for the SparkFun Qwiic STC3x, available here:
-# https://www.sparkfun.com/co-sensor-stc31-qwiic.html
+# https://www.sparkfun.com/products/29260.html
 #-------------------------------------------------------------------------------
 # Written by SparkFun Electronics, August 2025
 #
@@ -36,7 +36,7 @@
 """
 qwiic_stc3x 
 ============
-Python module for the [SparkFun Qwiic STC3x]( https://www.sparkfun.com/co-sensor-stc31-qwiic.html)
+Python module for the [SparkFun Qwiic STC3x](https://www.sparkfun.com/products/29260.html)
 This is a port of the existing [Arduino Library](https://github.com/sparkfun/SparkFun_STC3x_Arduino_Library/tree/main)
 This package can be used with the overall [SparkFun Qwiic Python Package](https://github.com/sparkfun/Qwiic_Py)
 New to Qwiic? Take a look at the entire [SparkFun Qwiic ecosystem](https://www.sparkfun.com/qwiic).
