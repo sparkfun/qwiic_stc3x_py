@@ -83,7 +83,7 @@ def runExample():
 	# This feature can be enabled or disabled by using the commands as shown below. The default state is disabled.
 	# The automatic self-calibration is optimized for a gas concentration measurement interval of 1s.
 	# Substantially different measurement intervals may decrease the self-calibration performance.
-	if mySTC31.enable_auto_calibration():
+	if mySTC31.enable_automatic_self_calibration():
 		print("Automatic self-calibration enabled.")
 	else:
 		print("Failed to enable automatic self-calibration.")

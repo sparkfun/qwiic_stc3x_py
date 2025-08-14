@@ -458,8 +458,6 @@ class QwiicSTC3x(object):
                 if foundCrc != incoming:
                     prodId.valid = False
         
-        # TODO: check endianness here...
-        # prodId.productNumber = (prodBytes[0] << 24) | (prodBytes[1] << 16) | (prodBytes[2] << 8) | prodBytes[3]
         prodId.productNumber = (prodBytes[3] << 24) | (prodBytes[2] << 16) | (prodBytes[1] << 8) | prodBytes[0]
 
         return prodId
@@ -480,7 +478,7 @@ class QwiicSTC3x(object):
         :return: True if the command was sent successfully, False otherwise
         :rtype: bool
         """
-        return self.send_command(self.kCmdEnableAutomaticSelfCalibration)
+        return self.send_command(self.kCmdAutomaticCalibrationEnable)
 
     def disable_automatic_self_calibration(self):
         """
@@ -489,7 +487,7 @@ class QwiicSTC3x(object):
         :return: True if the command was sent successfully, False otherwise
         :rtype: bool
         """
-        return self.send_command(self.kCmdDisableAutomaticSelfCalibration)
+        return self.send_command(self.kCmdAutomaticCalibrationDisable)
 
     def send_command(self, command, arguments = None):
         """
@@ -502,7 +500,10 @@ class QwiicSTC3x(object):
         :return: True if the command was sent successfully, False otherwise
         :rtype: bool
         """
+        command = int(command) & 0xFFFF  # Ensure command is a 16-bit integer
+
         if arguments is not None:
+            arguments = int(arguments) & 0xFFFF  # Ensure arguments is a 16-bit integer
             data = [arguments >> 8 , arguments & 0xFF]
             crc = self.computeCRC8(data)
             bytesToSend = [ command >> 8, 

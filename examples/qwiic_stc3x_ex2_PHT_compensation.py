@@ -33,7 +33,6 @@
 # SOFTWARE.
 #===============================================================================
 
-from ast import In
 import qwiic_stc3x 
 import sys
 import time
